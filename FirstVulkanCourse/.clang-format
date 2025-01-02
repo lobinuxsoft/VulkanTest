@@ -1,0 +1,7 @@
+# Google C/C++ Code Style Settings
+
+Language: Cpp
+BasedOnStyle: Google
+Standard: c++20
+UseTab: Never
+ColumnLimit: 180
