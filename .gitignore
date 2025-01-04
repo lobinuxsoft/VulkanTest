@@ -31,4 +31,8 @@
 *.out
 *.app
 
-FirstVulkanCourse/out/
+*/out/
+
+*/cmake-build-debug/
+
+*/.idea/
