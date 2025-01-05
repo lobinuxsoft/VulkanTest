@@ -1,28 +1,20 @@
-#include <cmath>
 #include <cstdint>
+#include <cmath>
 #include <gsl/gsl>
-#include <iostream>
+#include <cstdlib>
+#include <GLFW/glfw3.h>
 
-class Point {
-  std::float_t x_, y_, z_;
+#include <glfw_initialization.h>
 
-  void MyMethod() const {}
-};
+std::int32_t main(std::int32_t argc, gsl::zstring *argv) {
+    veng::GlfwInitialization _glfw;
 
-void MyFunction() {}
+    gsl::not_null<GLFWwindow *> window = glfwCreateWindow(800, 600, "Vulkan Engine", nullptr, nullptr);
+    gsl::final_action _cleanup_window([window]()-> void { glfwDestroyWindow(window); });
 
-int main(std::int32_t argc, gsl::zstring* argv) {
-  gsl::span<gsl::zstring> arguments(argv, argc);
-  std::sort(arguments.begin(), arguments.end());
+    while (!glfwWindowShouldClose(window)) {
+        glfwPollEvents();
+    }
 
-  std::string my_string_variable;
-
-  gsl::not_null<gsl::zstring*> arguments_pointer_validated = argv;
-
-  std::uint32_t count = 0;
-  std::size_t size = 12;
-  std::float_t s = 0.0f;
-
-  std::cout << "Hello World!!" << std::endl;
-  return 0;
+    return EXIT_SUCCESS;
 }

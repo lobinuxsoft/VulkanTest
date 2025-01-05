@@ -5,3 +5,14 @@ BasedOnStyle: Google
 Standard: c++20
 UseTab: Never
 ColumnLimit: 180
+
+# Additional
+AlignAfterOpenBracket: AlwaysBreak
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortLoopsOnASingleLine: false
+AllowShortLambdasOnASingleLine: All
+
+InsertBraces: true
+ExperimentalAutoDetectBinPacking: true
+SortIncludes: false
