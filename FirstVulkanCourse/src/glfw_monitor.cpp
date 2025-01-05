@@ -1,5 +1,6 @@
 ﻿#include <glfw_monitor.h>
 #include <GLFW/glfw3.h>
+#include <precomp.h>
 
 namespace veng {
     gsl::span<GLFWmonitor *> GetMonitors() {
@@ -20,7 +21,7 @@ namespace veng {
         return monitor_size;
     }
 
-    void MoveWindowToMonitor(gsl::not_null<GLFWwindow*> window, gsl::not_null<GLFWmonitor*> monitor) {
+    void MoveWindowToMonitor(gsl::not_null<GLFWwindow *> window, gsl::not_null<GLFWmonitor *> monitor) {
         glm::ivec2 window_size;
         glfwGetWindowSize(window, &window_size.x, &window_size.y);
 

@@ -1,9 +1,12 @@
 ﻿#include <glfw_window.h>
 #include <glfw_monitor.h>
 #include <GLFW/glfw3.h>
+#include <precomp.h>
 
 namespace veng {
     Window::Window(gsl::czstring name, glm::ivec2 size) {
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         window_ = glfwCreateWindow(size.x, size.y, name, nullptr, nullptr);
 
         if (!window_) { std::exit(EXIT_FAILURE); }
@@ -22,7 +25,7 @@ namespace veng {
     GLFWwindow *Window::GetHandle() const { return window_; }
 
     bool Window::TryMoveToMonitor(std::uint16_t monitor_number) {
-        gsl::span<GLFWmonitor*> monitors = GetMonitors();
+        gsl::span<GLFWmonitor *> monitors = GetMonitors();
 
         if (monitor_number < monitors.size()) {
             MoveWindowToMonitor(window_, monitors[monitor_number]);
