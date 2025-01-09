@@ -37,7 +37,9 @@ file(GLOB_RECURSE VulkanEngineSources CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h"
 )
 
-add_executable(VulkanEngine ${VulkanEngineSources})
+add_executable(VulkanEngine ${VulkanEngineSources}
+        src/graphics.h
+        src/graphics.cpp)
 
 target_link_libraries(VulkanEngine PRIVATE Vulkan::Vulkan)
 target_link_libraries(VulkanEngine PRIVATE glm)
